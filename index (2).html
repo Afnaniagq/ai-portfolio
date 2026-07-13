@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aisha Imran — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory: #FBF5EE;
+    --ivory-deep: #F5EBE0;
+    --rose: #C98A93;
+    --rose-deep: #B06E79;
+    --rose-pale: #F3DCDF;
+    --ink: #4A3B38;
+    --ink-soft: #8A7873;
+    --card: #FFFFFF;
+    --radius: 22px;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3{
+    font-family: 'Fraunces', serif;
+    color: var(--ink);
+  }
+
+  a{ color: inherit; }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.2rem;
+    padding: 1.3rem 1.6rem;
+    background: rgba(251, 245, 238, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    border-bottom: 1px solid var(--rose-pale);
+  }
+  .nav-logo{
+    position: absolute;
+    left: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--rose-deep);
+  }
+  .nav-logo .logo-badge{
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: 'Work Sans', sans-serif;
+    box-shadow: 0 6px 16px -4px rgba(176, 110, 121, 0.6);
+  }
+  nav a{
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: var(--ink-soft);
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+  }
+  nav a:hover{ color: var(--rose-deep); }
+  nav a::after{
+    content:'';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--rose);
+    transition: width 0.3s ease;
+  }
+  nav a:hover::after{ width: 100%; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 1.5rem 3rem;
+    position: relative;
+  }
+  .hero .eyebrow{
+    font-size: 0.8rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+  }
+  .hero h1{
+    font-size: clamp(2.6rem, 7vw, 4.6rem);
+    font-weight: 600;
+    line-height: 1.08;
+    margin-bottom: 1.1rem;
+  }
+  .hero h1 span{
+    font-style: italic;
+    color: var(--rose-deep);
+    font-weight: 400;
+  }
+  .hero p{
+    max-width: 520px;
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+  }
+  .hero{
+    overflow: hidden;
+  }
+
+  .blob{
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(6px);
+    z-index: -1;
+    opacity: 0.55;
+  }
+  .blob-1{
+    width: 380px; height: 380px;
+    background: radial-gradient(circle at 35% 30%, var(--rose-pale), transparent 70%);
+    top: -80px; left: -60px;
+    opacity: 0.75;
+    animation: floatA 6s ease-in-out infinite;
+  }
+  .blob-2{
+    width: 300px; height: 300px;
+    background: radial-gradient(circle at 40% 40%, var(--rose), transparent 72%);
+    top: 10%; right: -80px;
+    opacity: 0.55;
+    animation: floatB 7s ease-in-out infinite;
+  }
+  .blob-3{
+    width: 260px; height: 260px;
+    background: radial-gradient(circle at 50% 50%, var(--rose-deep), transparent 70%);
+    bottom: -100px; left: 20%;
+    opacity: 0.45;
+    animation: floatC 8s ease-in-out infinite;
+  }
+
+  @keyframes floatA{
+    0%, 100%{ transform: translate(0, 0) scale(1); }
+    50%{ transform: translate(40px, 50px) scale(1.1); }
+  }
+  @keyframes floatB{
+    0%, 100%{ transform: translate(0, 0) scale(1); }
+    50%{ transform: translate(-50px, 30px) scale(1.15); }
+  }
+  @keyframes floatC{
+    0%, 100%{ transform: translate(0, 0) scale(1); }
+    50%{ transform: translate(30px, -40px) scale(1.08); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .blob{ animation: none; }
+  }
+
+  .scroll-hint{
+    margin-top: 3rem;
+    width: 26px; height: 42px;
+    border: 2px solid var(--rose);
+    border-radius: 20px;
+    position: relative;
+  }
+  .scroll-hint::before{
+    content:'';
+    position: absolute;
+    top: 8px; left: 50%;
+    width: 5px; height: 5px;
+    background: var(--rose);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: scrollDot 1.6s infinite;
+  }
+  @keyframes scrollDot{
+    0%{ opacity:1; top:8px; }
+    70%{ opacity:0; top:22px; }
+    100%{ opacity:0; top:8px; }
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 6rem 1.5rem;
+  }
+  .section-head{
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .section-head .tag{
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+  }
+  .section-head h2{
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    margin-top: 0.5rem;
+    font-weight: 600;
+  }
+
+  /* fade-in on scroll */
+  .reveal{
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.in-view{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .about-card{
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 2.4rem;
+    box-shadow: 0 18px 42px -14px rgba(176, 110, 121, 0.55);
+    text-align: center;
+  }
+  .about-card p{
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .about-card p strong{ color: var(--ink); }
+
+  /* ---------- CARD GRID (hobbies / skills) ---------- */
+  .card-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .card{
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 2rem 1.6rem;
+    box-shadow: 0 18px 40px -16px rgba(176, 110, 121, 0.5);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    text-align: center;
+  }
+  .card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 26px 48px -14px rgba(176, 110, 121, 0.65);
+  }
+  .icon-wrap{
+    width: 58px; height: 58px;
+    margin: 0 auto 1.1rem;
+    border-radius: 50%;
+    background: var(--rose-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  .card h3{
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  .card p{
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- EDUCATION (timeline-ish, no numbering since not a strict sequence-list) ---------- */
+  .edu-card{
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.8rem 2rem;
+    display: flex;
+    gap: 1.4rem;
+    align-items: flex-start;
+    box-shadow: 0 18px 40px -16px rgba(176, 110, 121, 0.5);
+    margin-bottom: 1.3rem;
+  }
+  .edu-card:last-child{ margin-bottom: 0; }
+  .edu-dot{
+    min-width: 14px; height: 14px;
+    margin-top: 6px;
+    border-radius: 50%;
+    background: var(--rose);
+  }
+  .edu-card h3{
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+  .edu-card p{
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  footer{
+    text-align: center;
+    padding: 3rem 1.5rem 2.5rem;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+  }
+  footer .heart{ color: var(--rose-deep); }
+
+  @media (max-width: 600px){
+    nav{ gap: 1.2rem; padding: 1rem; }
+    nav a{ font-size: 0.8rem; }
+    section{ padding: 4rem 1.2rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ transition: none; opacity: 1; transform: none; }
+    .scroll-hint::before{ animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><span class="logo-badge">AI</span> Aisha</div>
+  <a href="#about">About</a>
+  <a href="#hobbies">Hobbies</a>
+  <a href="#skills">Skills</a>
+  <a href="#education">Education</a>
+</nav>
+
+<section class="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="eyebrow">Portfolio</div>
+  <h1>Aisha Imran <span>— creating, learning, building</span></h1>
+  <p>A Class 9 Computer Science student who loves turning ideas into games, crafts, and creative projects.</p>
+  <div class="scroll-hint"></div>
+</section>
+
+<section id="about">
+  <div class="section-head reveal">
+    <div class="tag">Get to know me</div>
+    <h2>About Me</h2>
+  </div>
+  <div class="about-grid reveal">
+    <div class="about-card">
+      <p><strong>Assalam-o-Alaikum!</strong> I'm Aisha, a Class 9 student studying Computer Science. I love exploring
+      creative and technical projects side by side — from designing browser-based games to working with crochet
+      and canvas art. I'm currently building my skills in AI Prompting at Governor House, and I enjoy learning
+      about history in my free time. I believe in mixing creativity with technology to build things that feel
+      personal and thoughtful.</p>
+    </div>
+  </div>
+</section>
+
+<section id="hobbies">
+  <div class="section-head reveal">
+    <div class="tag">What I enjoy</div>
+    <h2>Hobbies</h2>
+  </div>
+  <div class="card-grid">
+    <div class="card reveal">
+      <div class="icon-wrap">🧶</div>
+      <h3>Crochet</h3>
+      <p>Creating handmade patterns and designs, stitch by stitch.</p>
+    </div>
+    <div class="card reveal">
+      <div class="icon-wrap">🎮</div>
+      <h3>Game Development</h3>
+      <p>Building simple, self-contained browser games from scratch.</p>
+    </div>
+    <div class="card reveal">
+      <div class="icon-wrap">🖼️</div>
+      <h3>Canvas Templates</h3>
+      <p>Designing and painting templates on canvas as a creative outlet.</p>
+    </div>
+    <div class="card reveal">
+      <div class="icon-wrap">📜</div>
+      <h3>History</h3>
+      <p>Reading about and exploring stories from the past.</p>
+    </div>
+    <div class="card reveal">
+      <div class="icon-wrap">📚</div>
+      <h3>Book Reading</h3>
+      <p>Getting lost in a good book whenever there's time to spare.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-head reveal">
+    <div class="tag">What I can do</div>
+    <h2>Skills</h2>
+  </div>
+  <div class="card-grid">
+    <div class="card reveal">
+      <div class="icon-wrap">🧁</div>
+      <h3>Baking</h3>
+      <p>Preparing baked goods with care and creativity.</p>
+    </div>
+    <div class="card reveal">
+      <div class="icon-wrap">✂️</div>
+      <h3>Crafting</h3>
+      <p>Hands-on craft work, from small projects to detailed pieces.</p>
+    </div>
+    <div class="card reveal">
+      <div class="icon-wrap">💻</div>
+      <h3>Game Development</h3>
+      <p>Building interactive browser games using HTML, CSS, and JavaScript.</p>
+    </div>
+    <div class="card reveal">
+      <div class="icon-wrap">🤖</div>
+      <h3>AI Prompting</h3>
+      <p>Currently developing this skill through a program at Governor House.</p>
+    </div>
+    <div class="card reveal">
+      <div class="icon-wrap">⌨️</div>
+      <h3>Typing</h3>
+      <p>Fast and accurate typing for schoolwork and creative projects.</p>
+    </div>
+    <div class="card reveal">
+      <div class="icon-wrap">📖</div>
+      <h3>Quran Teacher</h3>
+      <p>Teaching Quran recitation and memorization to students.</p>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="section-head reveal">
+    <div class="tag">My learning journey</div>
+    <h2>Education</h2>
+  </div>
+  <div class="reveal">
+    <div class="edu-card">
+      <div class="edu-dot"></div>
+      <div>
+        <h3>Class 9 — Computer Science</h3>
+        <p>Currently studying Computer Science as part of my school curriculum.</p>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-dot"></div>
+      <div>
+        <h3>AI Prompting Program — Governor House</h3>
+        <p>Developing practical skills in AI prompting through a dedicated learning program.</p>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-dot"></div>
+      <div>
+        <h3>Certified Hafiza-e-Quran</h3>
+        <p>Completed memorization of the Holy Quran, alhamdulillah.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Made with <span class="heart">♥</span> by Aisha Imran
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
